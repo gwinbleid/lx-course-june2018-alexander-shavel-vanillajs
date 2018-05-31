@@ -1,0 +1,484 @@
+body {
+	font-size: 15px;
+	font-family: 'Arial', sans-serif;
+}
+
+.container {
+	display: -webkit-flex;
+  	display: -ms-flexbox;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: stretch;
+	overflow: hidden;
+	height: 100%;
+}
+
+.master {
+	width: 30%;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.detail {
+	width: 70%;
+	flex: 3;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+header {
+	padding-top: 10px;
+	height: 25px;
+	font-size: 20px;
+	padding-bottom: 5px;
+
+}
+
+.detail header {
+	border-bottom: 2px solid rgb(197, 203, 214);
+	background-color: rgb(222, 231, 232);
+}
+
+.text_align_left { text-align: left; }
+.text_align_right { text-align: right; }
+.text_align_center { text-align: center; }
+.text_bold { font-weight: bold; }
+
+.in_time { color: green; }
+.urgent { color: orange; }
+
+
+/* Секция для article and his contains */
+/***************************************/
+
+.detail section {
+	border-bottom: 2px solid rgb(197, 203, 214);
+	padding-left: 30px;
+	padding-right: 25px;
+	padding-top: 30px;
+}
+
+#secondary_info {
+	height: 20%;
+}
+
+#items_info {
+	height: 30%;
+}
+
+.detail section:last-child {
+	border-bottom: none;
+}
+
+#order_info {
+	background-color: rgb(222, 231, 232);
+}
+
+#items_info {
+	background-color: rgb(242, 242, 242);
+}
+
+.title {
+	margin: 0 0 0 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.total_item_cost {
+		font-size: 2em;
+}
+
+#order_title {
+	font-size: 2em;
+}
+
+.order_info_data {
+	margin-top: 15px;
+	text-align: left;
+}
+
+.info_panel {
+	margin-top: 50px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+}
+
+.info_item {
+	height: 50px;
+	width: 50px;
+	text-align: center;
+	margin-right: 30px;
+	padding-bottom: 20px;
+	margin-bottom: -2px;
+}
+
+.active_info {
+	border-bottom: 2px solid rgba(77, 100, 135, 0.7);
+	z-index: 1;
+}
+
+.active_info .button {
+	background-color: rgb(77, 100, 135);
+	color: #fff;
+}
+
+.button {
+	height: 100%;
+	width: 100%;
+	background-color: #fff;
+	border-radius: 50%;
+	border: 2px solid rgb(77, 100, 135);
+	vertical-align: center;
+	font-size: 1.5em;
+}
+
+.button i {
+	padding-top: 25%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/*************Section 2****************/
+
+.section_heading {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.additional_data {
+	margin-left: 20%;
+	margin-bottom: 25px;
+	display: inline-flex;
+}
+
+/**************************************/
+
+/*************Section 3****************/
+
+table {
+	width: 100%;
+	margin-bottom: 15px;
+	border-bottom: 1px solid grey;
+}
+
+th {
+	background-color: rgb(219, 219, 219);
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
+}
+
+
+
+/**************************************/
+
+/************Footer**********************/
+footer {
+	height: 35px;
+	background-color: rgb(35, 41, 51);
+	text-align: right;
+	vertical-align: middle;
+	padding-top: 10px;
+	padding-right: 25px;
+}
+
+.footer_icons {
+	color: white;
+	font-size: 20px;
+	padding-top: 50%;
+}
+/**************************************/
+
+
+
+
+
+/****************MASTER****************/
+
+#entity_name {
+	margin: 25px;
+}
+
+.search_box {
+	margin: 5px 5px 5px 5px;
+}
+
+input {
+	width: 100%;
+}
+
+.orders_list {
+	height: 723px;
+	overflow-y: scroll;
+	overflow-x: none;
+}
+
+.orders_list_item {
+	padding: 10px 10px 10px 10px;
+	
+
+}
+
+.orders_list_item {
+	border-top: 1px solid grey;
+}
+
+.selected {
+	background-color: rgb(222, 231, 232);
+}
+
+.orders_list_item_title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 15px;
+	font-size: 1.5em;
+}
+
+.orders_list_item_description {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+/********FOOTER************************/
+
+.master footer {
+	border-right: 4px solid grey;
+}
+
+.master i {
+	margin-left: 25px;
+}
+
+/**************************************/
+
+/**************************************/
+
+
+
+
+
+/***********FORM***********************/
+
+/*Clearing Floats*/
+.cf:before, .cf:after{
+    content:"";
+    display:table;
+}
+
+.cf:after{
+    clear:both;
+}
+
+.cf{
+    zoom:1;
+}    
+/* Form wrapper styling */
+.form-wrapper {
+	display: inline-flex;
+	width: 100%;
+}
+
+/* Form text input */
+
+.form-wrapper input {
+    width: 100%;
+    font: 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    border-right: 0;    
+}
+
+.form-wrapper input:focus {
+    outline: 0;
+    background: #fff;
+}
+
+.form_buttons {
+	display: inline-flex;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.form_buttons i {
+	margin: 5px;
+}
+
+/* Form submit button */
+.form-wrapper button {
+    text-align: left;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: black;
+    background: rgb(224, 226, 229);
+}  
+
+.form-wrapper button:hover{    
+    background: rgb(69, 90, 122);
+    color: #fff;
+}  
+
+.form-wrapper button:active,
+.form-wrapper button:focus{  
+    background: #6482af;
+    outline: 0;  
+}
+
+/**************************************/
+@media screen and (max-width: 1024px) {
+
+	#entity_name {
+		margin: 15px;
+	}
+
+	.orders_list_item_title {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-bottom: 15px;
+		font-size: 1.5em;
+	}
+
+	.orders_list_item_title div {
+		margin-bottom: 5px;
+		font-family: bold;
+	}
+
+	.orders_list_item_description {
+		display: flex;
+		flex-direction: column;
+	}
+}
+@media screen and (max-width: 480px) {
+
+	/****Detail*************************/
+
+
+	.container {
+		height: auto;
+	}
+
+	.title {
+		margin: 0 0 0 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	#secondary_info {
+		height: 30%;
+	}
+
+	#items_info {
+		height: 50%;
+	}
+
+	#order_title {
+		font-size: 1.2em;
+	}
+
+	.total_item_cost {
+		font-size: 1.2em;
+	}
+
+	.detail article {
+		flex: 1;
+		padding-bottom: 20%;
+	}
+
+	/***********************************/
+
+
+	/********DETAil Section 1**********/
+
+	.order_info_data {
+		margin-top: 15px;
+		text-align: left;
+	}
+
+	.info_panel {
+		margin-top: 20px;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.info_item {
+		height: 30px;
+		width: 30px;
+		text-align: center;
+		margin-right: 30px;
+
+	}
+
+	.button {
+		height: 100%;
+		width: 100%;
+		background-color: #fff;
+		border-radius: 50%;
+		border: 2px solid rgb(77, 100, 135);
+		vertical-align: center;
+		font-size: 1.2em;
+	}
+
+	/*********************************/
+
+	/********Section 2****************/
+
+	.section_heading {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
+	/*********************************/
+
+	/********FOOTER*******************/
+
+	footer {
+		height: 20px;
+		background-color: rgb(35, 41, 51);
+		text-align: right;
+		vertical-align: middle;
+		padding-top: 10px;
+		padding-right: 15px;
+	}
+
+	.footer_icons {
+		color: white;
+		font-size: 15px;
+		padding-top: 50%;
+	}
+
+	/********************************/
+
+	/********MASTER*****************/
+
+
+	.orders_list_item_title {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		margin-bottom: 15px;
+		font-size: 1.2em;
+	}
+
+	.orders_list_item_title div {
+		margin-bottom: 5px;
+		font-family: bold;
+	}
+
+	.orders_list_item_description {
+		display: flex;
+		flex-direction: column;
+		font-size: 1em;
+	}
+
+	
+
+	/*******************************/
+}
