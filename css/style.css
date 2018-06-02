@@ -1,47 +1,71 @@
 body {
 	font-size: 15px;
 	font-family: 'Arial', sans-serif;
+	margin: 0;
 }
 
 .container {
-	display: -webkit-flex;
-  	display: -ms-flexbox;
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
 	align-items: stretch;
-	overflow: hidden;
-	height: 100%;
 }
 
 .master {
-	width: 30%;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+	width: 25%;
 }
 
 .detail {
-	width: 70%;
-	flex: 3;
+	flex: 2;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: stretch;
+	align-content: stretch;
+	width: 75%;
 }
 
 header {
 	padding-top: 10px;
-	height: 25px;
+	height: 30px;
 	font-size: 20px;
+	vertical-align: middle;
 	padding-bottom: 5px;
+	box-sizing: padding-box;
+} 
 
+.master header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
 }
 
 .detail header {
 	border-bottom: 2px solid rgb(197, 203, 214);
 	background-color: rgb(222, 231, 232);
 }
+
+/************Footer**********************/
+footer {
+	height: 40px;
+	background-color: rgb(35, 41, 51);
+	text-align: right;
+	vertical-align: middle;
+	padding-top: 10px;
+	padding-right: 25px;
+}
+
+.footer_icons {
+	color: white;
+	font-size: 20px;
+	padding-top: 50%;
+}
+/**************************************/
 
 .text_align_left { text-align: left; }
 .text_align_right { text-align: right; }
@@ -50,10 +74,17 @@ header {
 
 .in_time { color: green; }
 .urgent { color: orange; }
+.unvisible {
+	visibility: hidden;
+}
 
 
 /* Секция для article and his contains */
 /***************************************/
+
+article {
+	flex: 1
+}
 
 .detail section {
 	border-bottom: 2px solid rgb(197, 203, 214);
@@ -62,24 +93,31 @@ header {
 	padding-top: 30px;
 }
 
-#secondary_info {
-	height: 20%;
-}
-
-#items_info {
-	height: 30%;
-}
-
 .detail section:last-child {
 	border-bottom: none;
 }
 
 #order_info {
 	background-color: rgb(222, 231, 232);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex: 1 1;
+	height: 35vh
+}
+
+#secondary_info {
+	flex: 1 1;
+	height: 25vh;
 }
 
 #items_info {
+	display: flex;
+	flex-direction: column;
+
 	background-color: rgb(242, 242, 242);
+	flex: 1 1;
+	height: 38vh;
 }
 
 .title {
@@ -87,14 +125,7 @@ header {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-}
-
-.total_item_cost {
-		font-size: 2em;
-}
-
-#order_title {
-	font-size: 2em;
+	font-size: 1.4em;
 }
 
 .order_info_data {
@@ -126,6 +157,7 @@ header {
 .active_info .button {
 	background-color: rgb(77, 100, 135);
 	color: #fff;
+	margin-bottom: -2px;
 }
 
 .button {
@@ -147,13 +179,13 @@ header {
 /*************Section 2****************/
 
 .section_heading {
-	margin-top: 15px;
+	margin-top: 25px;
 	margin-bottom: 15px;
 }
 
 .additional_data {
 	margin-left: 20%;
-	margin-bottom: 25px;
+	margin-bottom: 32px;
 	display: inline-flex;
 }
 
@@ -165,10 +197,15 @@ table {
 	width: 100%;
 	margin-bottom: 15px;
 	border-bottom: 1px solid grey;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: rgb(219, 219, 219);
 }
 
 th {
-	background-color: rgb(219, 219, 219);
+	
 	border-top: 1px solid grey;
 	border-bottom: 1px solid grey;
 }
@@ -177,31 +214,14 @@ th {
 
 /**************************************/
 
-/************Footer**********************/
-footer {
-	height: 35px;
-	background-color: rgb(35, 41, 51);
-	text-align: right;
-	vertical-align: middle;
-	padding-top: 10px;
-	padding-right: 25px;
-}
-
-.footer_icons {
-	color: white;
-	font-size: 20px;
-	padding-top: 50%;
-}
-/**************************************/
-
-
-
-
-
 /****************MASTER****************/
 
-#entity_name {
-	margin: 25px;
+sidebar {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 0;
+	padding-bottom: 0;
 }
 
 .search_box {
@@ -213,9 +233,12 @@ input {
 }
 
 .orders_list {
-	height: 723px;
+	height: calc(100vh - 60px);
+	display: flex;
+	flex-direction: column;
 	overflow-y: scroll;
 	overflow-x: none;
+	flex: 1;
 }
 
 .orders_list_item {
@@ -237,7 +260,7 @@ input {
 	flex-direction: row;
 	justify-content: space-between;
 	margin-bottom: 15px;
-	font-size: 1.5em;
+	font-size: 1.2em;
 }
 
 .orders_list_item_description {
@@ -333,7 +356,9 @@ input {
 @media screen and (max-width: 1024px) {
 
 	#entity_name {
-		margin: 15px;
+		font-size: 15px;
+		position: relative;
+		left: 7%;
 	}
 
 	.orders_list_item_title {
@@ -354,6 +379,70 @@ input {
 		flex-direction: column;
 	}
 }
+
+@media screen and (max-height: 1024px) {
+	header {
+		height: 3%;
+		
+	}
+	.section_heading {
+			margin-top: 25px;
+			margin-bottom: 15px;
+	}
+
+	footer {
+		height: 3%;
+	}
+
+	.detail section {
+		padding-top: 10px;
+	}
+
+
+	#order_info {
+		background-color: rgb(222, 231, 232);
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 30%;
+	}
+	
+	#secondary_info {
+		height: 25%;
+	}
+
+	#items_info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background-color: rgb(242, 242, 242);
+
+		height: 40%;
+	}
+
+	.info_panel {
+		margin-top: 2%;
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+	}
+
+	.info_item {
+		height: 50px;
+		width: 50px;
+		text-align: center;
+		margin-right: 30px;
+		padding-bottom: 15px;
+		margin-bottom: -2px
+	}
+
+	.section_heading {
+		margin-top: 12px;
+		margin-bottom: 7px;
+	}
+}
+
+
 @media screen and (max-width: 480px) {
 
 	/****Detail*************************/
@@ -481,4 +570,12 @@ input {
 	
 
 	/*******************************/
+}
+
+@media screen and (max-height: 400px) {
+	#info_item {
+		height: 40%;
+		overflow-y: scroll;
+		margin-bottom: 10px;
+	}
 }

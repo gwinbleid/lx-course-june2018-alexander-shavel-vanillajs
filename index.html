@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./css/style2.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
     <link rel="stylesheet" href="./font/web-fonts-with-css/css/fontawesome-all.min.css">
-    <title>Livecoding</title>
+    <title>Order Manager</title>
 </head>
 <body style="margin: 0">
     <div class="container">
     	<div class="master">
     		<header>
-    			<span class="text_align_left"><i class="fas fa-angle-left"></i></span>
-    			<span id="entity_name" class="text_align_center">Orders (10)</span>
+    			<div class="text_align_left"><i class="fas fa-angle-left"></i></div>
+				<div id="entity_name" class="text_align_center">Orders (10)</div>
+				<div class="unvisible">I'am unvisible!</div>
     		</header>
-    		<article>
+    		<sidebar>
     			
     			<section class="search_box">
     				<form class="form-wrapper cf">
@@ -269,7 +270,7 @@
     				</div>
     			</section>
 
-    		</article>
+    		</sidebar>
     		<footer>
     			<span class="footer_icons"><i class="fas fa-filter"></i><i class="fas fa-bars"></i></span>
     		</footer>
@@ -283,11 +284,11 @@
 
     			<div class="title">
     				<div>
-    					<span id="order_title">Order 7918</	span>
+    					<span class="order_title">Order 7918</	span>
     				</div>
     				
     				<div>
-    				<span class="total_item_cost" style="text-align: right;">150 935,13</	span><br><span style="font-size: 0.7	em; text-align: end">EUR</span>
+    				<span class="total_item_cost">150 935,13</	span><br><span style="font-size: 0.7	em; text-align: end">EUR</span>
     				</div>
     			</div>
 
@@ -307,7 +308,7 @@
     		</section>
 
     		<section id="secondary_info">
-    			<h3 class="section_heading">Shipping Address	</h3>
+    			<h3 class="section_heading">Shipping Address</h3>
     			<hr>
     			<div class="additional_data">
     				<div class="text_align_right">
@@ -342,15 +343,15 @@
 
     			<table>
     				<thead>
-						<th>Product</th>
-						<th>Unit Price</th>
-						<th>Quantity</th>
-						<th>Total</th>
+						<th>Product</th><!-- -->
+						<!-- --><th>Unit Price</th>
+						<!-- --><th>Quantity</th>
+						<!-- --><th>Total</th>
 					</thead>
 					<tbody>
 						<tr>
 							<td class="text_align_left">
-								<span class="text_bold">	Anissed Syrup</span>
+								<span class="text_bold">Anissed Syrup</span>
 								<br>
 								<span>1412</span>
 							</td>
@@ -388,19 +389,19 @@
 
 						<tr>
 							<td class="text_align_left">
-								<span class="text_bold">	Northwoods Cranberry Sauce</	span>
+								<span class="text_bold">Northwoods Cranberry Sauce</	span>
 								<br>
 								<span>5046</span>
 						</td>
 							<td class="text_align_center">
-								<span class="text_bold">61.69	</span>
+								<span class="text_bold">61.69</span>
 							<span> EUR</span>
 							</td>
 							<td class="text_align_center">
 								<span>867</span>
 							</td>
 							<td class="text_align_right">
-								<span class="text_bold">53 	485,23</span>
+								<span class="text_bold">53 485,23</span>
 								<span> EUR</span>
 							</td>
 						</tr>
@@ -430,7 +431,7 @@
 
     		</article>
     		<footer>
-    			<span style="text-align: right" class="text_align_right footer_icons"><i class="far fa-envelope"></i></span>
+    			<span class="text_align_right footer_icons"><i class="far fa-envelope"></i></span>
     		</footer>
     	</div>
     </div>
