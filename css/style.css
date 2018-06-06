@@ -30,6 +30,19 @@ body {
 	width: 75%;
 }
 
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	flex: 1;
+}
+
+.wrapper2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
 header {
 	padding-top: 10px;
 	height: 30px;
@@ -77,13 +90,18 @@ footer {
 .unvisible {
 	visibility: hidden;
 }
+.hiding { display: none };
+
+/* Welcome */
+.welcome
 
 
 /* Секция для article and his contains */
 /***************************************/
 
 article {
-	flex: 1
+	height: auto;
+	flex: 1;
 }
 
 .detail section {
@@ -97,27 +115,31 @@ article {
 	border-bottom: none;
 }
 
-#order_info {
+.order_info {
 	background-color: rgb(222, 231, 232);
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: flex-start;
 	flex: 1 1;
-	height: 35vh
 }
 
-#secondary_info {
+.secondary_info {
 	flex: 1 1;
-	height: 25vh;
 }
 
-#items_info {
+.secondary_body {
+	margin-left: 30px;
+	display: inline-flex;
+	padding-bottom: 20px;
+}
+
+.items_info {
+	min-height: 300px;
 	display: flex;
 	flex-direction: column;
-
+	justify-content: flex-start;
 	background-color: rgb(242, 242, 242);
 	flex: 1 1;
-	height: 38vh;
 }
 
 .title {
@@ -179,7 +201,7 @@ article {
 /*************Section 2****************/
 
 .section_heading {
-	margin-top: 25px;
+	margin-top: 0px;
 	margin-bottom: 15px;
 }
 
@@ -192,9 +214,46 @@ article {
 /**************************************/
 
 /*************Section 3****************/
+product_search_section {
+	padding-top: 0px;
+	margin-bottom: 20px;
+	width: 120px;;
+	display: inline-flex;
+}
+
+.product_search_input {
+	width:240px;
+    font: 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    border-right: 0;    
+}
+
+.product_search_section input:focus {
+    outline: 0;
+    background: #fff;
+}
+
+.product_button {
+    text-align: left;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    color: black;
+    background: rgb(224, 226, 229);
+}  
+
+.product_button button:hover{    
+    background: rgb(69, 90, 122);
+    color: #fff;
+}   
+
+button:hover{    
+    background: rgb(69, 90, 122);
+    color: #fff;
+}  
 
 table {
 	width: 100%;
+	margin-top: 30px;
 	margin-bottom: 15px;
 	border-bottom: 1px solid grey;
 	border-collapse: collapse;
@@ -226,6 +285,46 @@ sidebar {
 
 .search_box {
 	margin: 5px 5px 5px 5px;
+	display: inline-flex;
+}
+.search_box input {
+    width: 100%;
+    font: 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
+    border-right: 0;    
+}
+
+.search_box input:focus {
+    outline: 0;
+    background: #fff;
+}
+
+.form_buttons {
+	display: inline-flex;
+	vertical-align: middle;
+}
+
+.form_buttons i {
+	margin: 5px;
+}
+
+/* Form submit button */
+.search_box button {
+    text-align: left;
+	border: 0;
+	padding-left: 10px;
+    padding-right: 10px;
+    cursor: pointer;
+    color: black;
+    background: rgb(224, 226, 229);
+}  
+
+.search_box button:hover{    
+    background: rgb(69, 90, 122);
+    color: #fff;
+} 
+
+.master .search_box i {
+	margin-left: 0 !important;
 }
 
 input {
@@ -233,7 +332,7 @@ input {
 }
 
 .orders_list {
-	height: calc(100vh - 60px);
+	height: calc(100vh - 70px);
 	display: flex;
 	flex-direction: column;
 	overflow-y: scroll;
@@ -243,12 +342,27 @@ input {
 
 .orders_list_item {
 	padding: 10px 10px 10px 10px;
-	
-
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
 }
 
-.orders_list_item {
-	border-top: 1px solid grey;
+.orders_list_item:hover {
+	background-color: gray;
+	color: #fff;
+}
+
+.active_list_item {
+	background-color: rgb(69, 90, 122);
+	color: #fff;
+}
+
+.active_list_item:hover {
+	background-color: rgb(69, 90, 122);
+	color: #fff;
+}
+
+.orders_list_item:first-child {
+	border-bottom: none;
 }
 
 .selected {
@@ -284,76 +398,7 @@ input {
 /**************************************/
 
 
-
-
-
-/***********FORM***********************/
-
-/*Clearing Floats*/
-.cf:before, .cf:after{
-    content:"";
-    display:table;
-}
-
-.cf:after{
-    clear:both;
-}
-
-.cf{
-    zoom:1;
-}    
-/* Form wrapper styling */
-.form-wrapper {
-	display: inline-flex;
-	width: 100%;
-}
-
-/* Form text input */
-
-.form-wrapper input {
-    width: 100%;
-    font: 15px 'lucida sans', 'trebuchet MS', 'Tahoma';
-    border-right: 0;    
-}
-
-.form-wrapper input:focus {
-    outline: 0;
-    background: #fff;
-}
-
-.form_buttons {
-	display: inline-flex;
-	vertical-align: middle;
-	text-align: center;
-}
-
-.form_buttons i {
-	margin: 5px;
-}
-
-/* Form submit button */
-.form-wrapper button {
-    text-align: left;
-    border: 0;
-    padding: 0;
-    cursor: pointer;
-    color: black;
-    background: rgb(224, 226, 229);
-}  
-
-.form-wrapper button:hover{    
-    background: rgb(69, 90, 122);
-    color: #fff;
-}  
-
-.form-wrapper button:active,
-.form-wrapper button:focus{  
-    background: #6482af;
-    outline: 0;  
-}
-
-/**************************************/
-@media screen and (max-width: 1024px) {
+/*@media screen and (max-width: 1024px) {
 
 	#entity_name {
 		font-size: 15px;
@@ -380,7 +425,7 @@ input {
 	}
 }
 
-@media screen and (max-height: 1024px) {
+/*@media screen and (max-height: 1024px) {
 	header {
 		height: 3%;
 		
@@ -407,14 +452,14 @@ input {
 		height: 30%;
 	}
 	
-	#secondary_info {
+	.secondary_info {
 		height: 25%;
 	}
 
-	#items_info {
+	.items_info {
 		display: flex;
 		flex-direction: column;
-		justify-content: space-between;
+		justify-content: flex-start;
 		background-color: rgb(242, 242, 242);
 
 		height: 40%;
@@ -442,13 +487,13 @@ input {
 	}
 }
 
-
-@media screen and (max-width: 480px) {
+*/
+@media screen and (max-width: 600px) {
 
 	/****Detail*************************/
 
 
-	.container {
+	/*.container {
 		height: auto;
 	}
 
@@ -459,11 +504,12 @@ input {
 		justify-content: space-between;
 	}
 
-	#secondary_info {
+	.secondary_info {
 		height: 30%;
 	}
 
-	#items_info {
+	.items_info {
+		display: flex;
 		height: 50%;
 	}
 
@@ -485,7 +531,7 @@ input {
 
 	/********DETAil Section 1**********/
 
-	.order_info_data {
+/*	.order_info_data {
 		margin-top: 15px;
 		text-align: left;
 	}
@@ -519,7 +565,7 @@ input {
 
 	/********Section 2****************/
 
-	.section_heading {
+/*	.section_heading {
 		margin-top: 0;
 		margin-bottom: 0;
 	}
@@ -528,7 +574,7 @@ input {
 
 	/********FOOTER*******************/
 
-	footer {
+/*	footer {
 		height: 20px;
 		background-color: rgb(35, 41, 51);
 		text-align: right;
@@ -572,10 +618,10 @@ input {
 	/*******************************/
 }
 
-@media screen and (max-height: 400px) {
+/*@media screen and (max-height: 400px) {
 	#info_item {
 		height: 40%;
 		overflow-y: scroll;
 		margin-bottom: 10px;
 	}
-}
+}*/
