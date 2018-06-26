@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<link rel="stylesheet" type="text/css" href="./css/additional-style.css">
     <link rel="stylesheet" href="./font/web-fonts-with-css/css/fontawesome-all.min.css">
-    <title>Order Manager</title>
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmlwBs4dcLqNKmkPYM3-cqPs9juwV9NSI"></script>
+	
+	<title>Order Manager</title>
 </head>
 <body style="margin: 0">
     <div class="container">
@@ -34,7 +38,7 @@
 
     		</sidebar>
     		<footer>
-    			<span class="footer_icons"><i class="fas fa-filter"></i><i class="fas fa-bars"></i></span>
+    			<span class="footer_icons"><i id="orderCreateBtn" class="fas fa-plus"></i><i class="fas fa-filter"></i><i class="fas fa-bars"></i></span>
     		</footer>
     	</div>
 
@@ -46,37 +50,148 @@
 				<h1 class="hello">Hello</h1>
 				<h1>Welcome to order's manager app</h1>
 				</div>
-<!--
-    		<section id="items_info">
-    			<h3 class="section_heading">Line Items (4)</h3>
-    			<hr>
-
-    			<table>
-    				<thead>
-						<th>ID</th>
-						<th>Product</th>
-						<th>Unit Price</th>
-						<th>Quantity</th>
-						<th>Total</th>
-					</thead>
-					<tbody>
-						<tr>
-							
-						</tr>
-					</tbody>
-    			</table>
-
-    		</section> -->
-
 			</article>
 			</div>
     		<footer>
-    			<span class="text_align_right footer_icons"><i class="far fa-envelope"></i></span>
+    			<span class="text_align_right footer_icons"><i class="far fa-trash-alt delete_order"></i><i class="far fa-envelope"></i></span>
 			</footer>
     	</div>
 	</div>
-	<script async type="text/javascript" src="./js/data.js"></script>
-	<script  type="text/javascript" src="./js/initialFetch.js"></script>
-	<script  type="text/javascript" src="./js/masterDetail.js"></script>
+
+	<!-- Modals -------------- -->
+
+	<div id="orderCreateModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="closeBtn">&times;</span>
+				<h2>Add Order</h2>
+			</div>
+			<div class="modal-body">
+				<form action="#" id="orderCreateForm" class="modal_form">
+						<div class="form_item">
+							<label for="ocustomer"><b>Customer</b></label>
+							<div>
+								<input id="order_customer_input" type="text" class="modal_input" name="ocustomer" required="required" />
+							</div>
+						</div>
+			
+						<div class="form_item">
+							<label for="oshipped"><b>Shipped</b></label>
+							<div>
+								<input id="order_shipped_input" type="date" class="modal_input" name="oshipped" required>
+							</div>
+						</div>
+			
+						<div class="form_item">
+							<label for="ocurrency"><b>Currency</b></label>
+							<select id="order_currency_input"  type="text" class="modal_input" name="ocurrency" required>
+								<option value="EUR">EUR</option selected>
+								<option value="USD">USD</option>
+								<option value="BYN">BYN</option>
+								<option value="PLN">PLN</option>
+								<option value="RUB">RUB</option>
+								<option value="GBP">GBP</option>
+								<option value="YPE">YPE</option>
+								<option value="CDL">CDL</option>
+								<option value="SFK">SFK</option>
+							</select>
+						</div>
+
+						<div class="form_item">
+							<label for="ostatus"><b>Status</b></label>
+							<select id="order_status_input" type="text" class="modal_input" name="ostatus" required>
+								<option value="Pending">Pending</option selected>
+								<option value="In time">In Time</option>
+								<option value="Accepted">Accepted</option>
+							</select>
+						</div>
+						<span class="text_align_right">
+							<button type="submit" class="modal_button add_button">Create</input>
+							<button id="cancelOrderAdding" type="button" class="modal_button cancel_button">Cancel</button>
+						<span>
+					</form>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
+	</div>
+	
+	<div id="productCreateModal" class="modal">
+		<div class="modal-content">
+			<div class="modal-header">
+				<span class="closeBtn">&times;</span>
+				<h2>Add Product</h2>
+			</div>
+			<div class="modal-body">
+				<form action="#" class="modal_form">
+						<div class="form_item">
+							<label for="uname"><b>Product Name</b></label>
+							<input id="product_name_input" type="text" class="modal_input" name="pname" required>
+						</div>
+			
+						<div class="form_item">
+							<label for="pprice"><b>Price</b></label>
+								<input id="product_price_input" type="text" class="modal_input" name="pprice" required pattern="[1-9]\d*|0\d+" title="A Price must contain only numbers">
+						</div>
+			
+						<div class="form_item">
+							<label for="pquantity"><b>Quantity</b></label>
+								<input id="product_quantity_input" type="text" class="modal_input" name="pquantity" required pattern="[1-9]\d*|0\d+" title="A Quantity must contain only nubers">
+						</div>
+			
+						<div class="form_item">
+							<label for="pcurrency"><b>Currency</b></label>
+							<select id="product_currency_input" type="text" class="modal_input" name="pcurrency" required>
+								<option value="EUR">EUR</option selected>
+									<option value="USD">USD</option>
+									<option value="BYN">BYN</option>
+									<option value="PLN">PLN</option>
+									<option value="RUB">RUB</option>
+									<option value="GBP">GBP</option>
+									<option value="YPE">YPE</option>
+									<option value="CDL">CDL</option>
+									<option value="SFK">SFK</option>
+								
+							</select>
+						</div>
+
+						<span class="text_align_right">
+							<button type="submit" class="modal_button add_button">Create</button>
+							<button id="cancelProductAdding" type="button" class="modal_button cancel_button">Cancel</button>
+						<span>
+				</form>
+			</div>
+			<div class="modal-footer">
+				
+			</div>
+		</div>
+	</div>
+
+	<!----- LOADERS ------------>
+	<div class="loader">
+		<div class="sk-circle">
+			<div class="sk-circle1 sk-child"></div>
+			<div class="sk-circle2 sk-child"></div>
+			<div class="sk-circle3 sk-child"></div>
+			<div class="sk-circle4 sk-child"></div>
+			<div class="sk-circle5 sk-child"></div>
+			<div class="sk-circle6 sk-child"></div>
+			<div class="sk-circle7 sk-child"></div>
+			<div class="sk-circle8 sk-child"></div>
+			<div class="sk-circle9 sk-child"></div>
+			<div class="sk-circle10 sk-child"></div>
+			<div class="sk-circle11 sk-child"></div>
+			<div class="sk-circle12 sk-child"></div>
+		  </div>
+	</div>
+
+	<!-- -------------------- -->
+	<script type="text/javascript" src="js/View.js"></script>
+	<script type="text/javascript" src="js/Model.js"></script>
+	<script type="text/javascript" src="js/Controller.js"></script>
+	<!-- <script  type="text/javascript" src="./js/initialFetch.js"></script> -->
+	<!-- <script  type="text/javascript" src="./js/masterDetail.js"></script> -->
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCmlwBs4dcLqNKmkPYM3-cqPs9juwV9NSI"></script> -->
 </body>
 </html>
